@@ -82,6 +82,8 @@ dependencies {
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
 
+    compile 'org.springframework.amqp:spring-rabbit:1.7.3.RELEASE'
+
     compileOnly 'org.projectlombok:lombok'
 
     runtime 'org.springframework.boot:spring-boot-devtools'
