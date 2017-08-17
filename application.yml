@@ -43,6 +43,11 @@ logging:
         ap:
           ivs: DEBUG
 
+ivs:
+  gitLabSecret: "${GITLAB_WEBHOOK_SECRET}"
+  validationQueue: "cpt"
+  validationTopicExchange: "cpt-exchange"
+
 ---
 spring:
   profiles: dev
