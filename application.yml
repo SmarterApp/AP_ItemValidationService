@@ -49,6 +49,8 @@ ivs:
   validationTopicExchange: "cpt-exchange"
   systemUserName: "item-validation-service"
   systemFullName: "Item Validation Service"
+  cptHostName: "${CPT_HOST_NAME:http://localhost:5000}"
+  cptApiVersion: "${CPT_API_VERSION:/api/v1}"
 
 ---
 spring:
