@@ -32,7 +32,7 @@ itembank:
   user: "${GITLAB_USER}"
   password: "${GITLAB_PASSWORD}"
   group: "${GITLAB_GROUP}"
-  localBaseDir: "${HOME}/ItemBank"
+  localBaseDir: "${HOME}/ItemBankValidation"
   apiVersion: "/api/v4"
   bankKey: "187"
 
@@ -44,9 +44,11 @@ logging:
           ivs: DEBUG
 
 ivs:
-  gitLabSecret: "${GITLAB_WEBHOOK_SECRET}"
+  gitLabSecret: "secret-key"
   validationQueue: "cpt"
   validationTopicExchange: "cpt-exchange"
+  systemUserName: "item-validation-service"
+  systemFullName: "Item Validation Service"
 
 ---
 spring:
