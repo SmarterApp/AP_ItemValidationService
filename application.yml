@@ -65,3 +65,10 @@ spring:
 
 itembank:
   group: "iat-uat"
+
+---
+spring:
+  profiles: dev
+
+itembank:
+  group: "iat-development"
