@@ -198,7 +198,8 @@ task dockerCopyFiles(type: Copy) {
         filter(ReplaceTokens, tokens: [USER_HOME:           System.env.HOME,
                                        configServerVersion: project.configServerVersion,
                                        version:             project.version,
-                                       dockerTagBase:       project.dockerTagBase])
+                                       dockerTagBase:       project.dockerTagBase,
+                                       contentPackageTabulatorVersion: project.contentPackageTabulatorVersion])
     }
 
     from("build/libs/${jar.archiveName}") {

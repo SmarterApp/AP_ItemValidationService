@@ -13,9 +13,9 @@ VOLUME ["/tmp"]
 
 COPY ap-ivs.jar /
 
-ADD https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases/download/2.1.0/cpt2.1.0.tar.gz /
-RUN tar xf cpt2.1.0.tar.gz
-RUN rm cpt2.1.0.tar.gz
+ADD https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases/download/@contentPackageTabulatorVersion@/cpt@contentPackageTabulatorVersion@.tar.gz /
+RUN tar xf cpt@contentPackageTabulatorVersion@.tar.gz
+RUN rm cpt@contentPackageTabulatorVersion@.tar.gz
 RUN mv ./publish ./cpt
 
 RUN apt-get update
