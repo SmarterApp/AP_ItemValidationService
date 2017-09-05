@@ -2,4 +2,4 @@
 
 kops export kubecfg --state @kubecfgState@ --name @kubecfgName@
 
-kubectl set image deployment/ap-ivs-deployment ap-ivs=@dockerTagBase@/ap-ivs:@version@
+kubectl set image deployment/iat-ivs-deployment iat-ivs=@dockerTagBase@/iat-ivs:@version@
