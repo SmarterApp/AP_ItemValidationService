@@ -1,8 +1,32 @@
 version: '2.1'
 services:
-    config-server:
-        container_name: config-server
-        image: fwsbac/configuration-service:@configServerVersion@
+    redis-server:
+        container_name: redis-server
+        image: healthcheck/redis
+        networks:
+            - spring-cloud-network
+        ports:
+            - 6379:6379
+        logging:
+            driver: json-file
+    rabbit-server:
+        container_name: rabbit-server
+        image: rabbitmq:3-management
+        ports:
+          - "15672:15672"
+          - "5672:5672"
+          - "5671:5671"
+        environment:
+          RABBITMQ_DEFAULT_PASS: "guest"
+          RABBITMQ_DEFAULT_USER: "guest"
+          RABBITMQ_DEFAULT_VHOST: "/"
+        networks:
+          - spring-cloud-network
+        logging:
+          driver: json-file
+    configuration-service:
+        container_name: configuration-service
+        image: @dockerTagBase@/configuration-service:@configServerVersion@
         healthcheck:
           test: ["CMD", "curl", "-f", "http://localhost:8888/health"]
           interval: 30s
@@ -17,9 +41,14 @@ services:
         networks:
             - spring-cloud-network
         volumes:
-            - @USER_HOME@/smarter_app/sbac-config-repo:/tmp
+            - @USER_HOME@/smarter_app/iat-config-repo:/tmp
         logging:
             driver: json-file
+        links:
+            - redis-server
+        depends_on:
+          redis-server:
+            condition: service_healthy
     ap-ivs:
         container_name: ap-ivs
         image: fwsbac/ap-ivs:@version@
@@ -30,16 +59,17 @@ services:
           retries: 3
         environment:
             CONFIG_SERVICE_ENABLED: "true"
-            CONFIG_SERVICE_URL: "http://config-server:8888"
+            CONFIG_SERVICE_URL: "http://configuration-service:8888"
+            SPRING_PROFILES_ACTIVE: "localcompose"
         ports:
             - 8087:8080
         networks:
             - spring-cloud-network
         links:
-            - config-server
+            - configuration-service
         depends_on:
-          config-server:
-            condition: service_started
+          configuration-service:
+            condition: service_healthy
         volumes:
             - @USER_HOME@/smarter_app:/tmp
         logging:

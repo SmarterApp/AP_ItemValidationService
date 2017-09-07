@@ -5,7 +5,7 @@
 # The app can be enabled to pull its
 # configuration from a Spring Cloud Config-Server.
 #
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM openjdk:8
 
 MAINTAINER Smarter Balanced "opentestsystem.org"
 
@@ -13,7 +13,13 @@ VOLUME ["/tmp"]
 
 COPY ap-ivs.jar /
 
-RUN apk --no-cache add curl
+ADD https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases/download/v@contentPackageTabulatorVersion@/cpt@contentPackageTabulatorVersion@.tar.gz /
+RUN tar xf cpt@contentPackageTabulatorVersion@.tar.gz
+RUN rm cpt@contentPackageTabulatorVersion@.tar.gz
+RUN mv ./publish ./cpt
+
+RUN apt-get update
+RUN apt-get -y install curl libunwind8 gettext apt-transport-https
 
 ENTRYPOINT ["/usr/bin/java"]
 
