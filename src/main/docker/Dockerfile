@@ -13,7 +13,7 @@ VOLUME ["/tmp"]
 
 COPY ap-ivs.jar /
 
-ADD https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases/download/@contentPackageTabulatorVersion@/cpt@contentPackageTabulatorVersion@.tar.gz /
+ADD https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases/download/v@contentPackageTabulatorVersion@/cpt@contentPackageTabulatorVersion@.tar.gz /
 RUN tar xf cpt@contentPackageTabulatorVersion@.tar.gz
 RUN rm cpt@contentPackageTabulatorVersion@.tar.gz
 RUN mv ./publish ./cpt
