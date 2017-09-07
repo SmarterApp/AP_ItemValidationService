@@ -49,8 +49,13 @@ ivs:
   validationTopicExchange: "cpt-exchange"
   systemUserName: "item-validation-service"
   systemFullName: "Item Validation Service"
-  cptHostName: "${CPT_HOST_NAME:http://localhost:5000}"
-  cptApiVersion: "${CPT_API_VERSION:/api/v1}"
+  # This path is to the executable version of the CPT appropriate to the machine it's running on.
+  # Currently supported environments are Windows (win10-x64), OSX (osx.10.12-x64), and Debian Linux (debian.8-x64).
+  # Failure to provide an appropriate executable will cause validation to fail. CPT releases
+  # may be found on GitHub here: https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases
+  cptExecutablePath: "/cpt/ContentPackageTabulator"
+  #cptExecutablePath: "/Users/gregwhite/Projects/SmarterBalanced/ContentPackageTabulator/ContentPackageTabulator/bin/Release/netcoreapp2.0/osx.10.12-x64/publish/ContentPackageTabulator"
+
 
 ---
 spring:
