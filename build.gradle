@@ -58,7 +58,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.1.17-SNAPSHOT'
+    compile 'org.opentestsystem.ap:ap-common:0.1.19'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
@@ -67,13 +67,19 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
 
     compile 'org.springframework.cloud:spring-cloud-starter-config'
+    compile 'org.springframework.cloud:spring-cloud-starter-feign'
 
-    compile 'org.springframework.security.extensions:spring-security-saml2-core:1.0.2.RELEASE'
+    compile 'org.springframework.amqp:spring-rabbit:1.7.3.RELEASE'
     compile 'org.springframework.retry:spring-retry'
+    compile 'org.springframework.security.extensions:spring-security-saml2-core:1.0.2.RELEASE'
     compile 'org.springframework.session:spring-session'
+
+    compile 'io.github.openfeign:feign-gson:9.3.1'
 
     compile 'org.apache.commons:commons-collections4:4.1'
     compile 'org.apache.commons:commons-lang3:3.5'
+
+    compile 'commons-io:commons-io:2.5'
 
     compile 'com.google.guava:guava:22.0'
 
@@ -81,8 +87,6 @@ dependencies {
 
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
-
-    compile 'org.springframework.amqp:spring-rabbit:1.7.3.RELEASE'
 
     compileOnly 'org.projectlombok:lombok'
 
@@ -194,7 +198,8 @@ task dockerCopyFiles(type: Copy) {
         filter(ReplaceTokens, tokens: [USER_HOME:           System.env.HOME,
                                        configServerVersion: project.configServerVersion,
                                        version:             project.version,
-                                       dockerTagBase:       project.dockerTagBase])
+                                       dockerTagBase:       project.dockerTagBase,
+                                       contentPackageTabulatorVersion: project.contentPackageTabulatorVersion])
     }
 
     from("build/libs/${jar.archiveName}") {
