@@ -54,8 +54,6 @@ ivs:
   # Failure to provide an appropriate executable will cause validation to fail. CPT releases
   # may be found on GitHub here: https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases
   cptExecutablePath: "/cpt/ContentPackageTabulator"
-  #cptExecutablePath: "/Users/gregwhite/Projects/SmarterBalanced/ContentPackageTabulator/ContentPackageTabulator/bin/Release/netcoreapp2.0/osx.10.12-x64/publish/ContentPackageTabulator"
-
 
 ---
 spring:
