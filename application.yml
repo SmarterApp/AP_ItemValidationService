@@ -35,6 +35,12 @@ itembank:
   localBaseDir: "${HOME}/ItemBankValidation"
   apiVersion: "/api/v4"
   bankKey: "187"
+  lockSectionMaxRetries: "10"
+  lockSectionRetryDelayMillis: "2000"
+
+tasks:
+  itemCleanupThresholdMillis : "30000"
+  itemCleanupRunEveryMillis: "30000"
 
 logging:
   level:
@@ -42,6 +48,7 @@ logging:
       opentestsystem:
         ap:
           ivs: DEBUG
+          common: DEBUG
 
 ivs:
   gitLabSecret: "secret-key"
