@@ -35,8 +35,6 @@ itembank:
   localBaseDir: "${HOME}/ItemBankValidation"
   apiVersion: "/api/v4"
   bankKey: "187"
-  lockSectionMaxRetries: "10"
-  lockSectionRetryDelayMillis: "2000"
 
 tasks:
   itemCleanupThresholdMillis : "30000"
@@ -51,9 +49,6 @@ logging:
           common: DEBUG
 
 ivs:
-  gitLabSecret: "secret-key"
-  validationQueue: "cpt"
-  validationTopicExchange: "cpt-exchange"
   systemUserName: "item-validation-service"
   systemFullName: "Item Validation Service"
   itemBankReportRepoName: "itembankreports"
