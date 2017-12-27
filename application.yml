@@ -49,8 +49,6 @@ logging:
           common: DEBUG
 
 ivs:
-  systemUserName: "item-validation-service"
-  systemFullName: "Item Validation Service"
   itemBankReportRepoName: "itembankreports"
   # This path is to the executable version of the CPT appropriate to the machine it's running on.
   # Currently supported environments are Windows (win10-x64), OSX (osx.10.12-x64), and Debian Linux (debian.8-x64).
