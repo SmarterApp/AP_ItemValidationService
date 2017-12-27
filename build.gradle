@@ -58,7 +58,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.3.9'
+    compile 'org.opentestsystem.ap:ap-common:0.3.11-SNAPSHOT'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
@@ -69,7 +69,6 @@ dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-config'
     compile 'org.springframework.cloud:spring-cloud-starter-feign'
 
-    compile 'org.springframework.amqp:spring-rabbit:1.7.3.RELEASE'
     compile 'org.springframework.retry:spring-retry'
     compile 'org.springframework.security.extensions:spring-security-saml2-core:1.0.2.RELEASE'
     compile 'org.springframework.session:spring-session'
