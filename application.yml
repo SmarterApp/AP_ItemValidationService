@@ -35,8 +35,6 @@ itembank:
   localBaseDir: "${HOME}/ItemBankValidation"
   apiVersion: "/api/v4"
   bankKey: "187"
-  lockSectionMaxRetries: "10"
-  lockSectionRetryDelayMillis: "2000"
 
 tasks:
   itemCleanupThresholdMillis : "30000"
@@ -51,11 +49,6 @@ logging:
           common: DEBUG
 
 ivs:
-  gitLabSecret: "secret-key"
-  validationQueue: "cpt"
-  validationTopicExchange: "cpt-exchange"
-  systemUserName: "item-validation-service"
-  systemFullName: "Item Validation Service"
   itemBankReportRepoName: "itembankreports"
   # This path is to the executable version of the CPT appropriate to the machine it's running on.
   # Currently supported environments are Windows (win10-x64), OSX (osx.10.12-x64), and Debian Linux (debian.8-x64).
