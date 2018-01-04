@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2018 Regents of the University of California. Licensed under the Educational Community License, Version
+  ~ 2.0 (the "license"); you may not use this file except in compliance with the License. You may obtain a copy of the
+  ~ license at
+  ~
+  ~ https://opensource.org/licenses/ECL-2.0
+  ~
+  ~ Unless required under applicable law or agreed to in writing, software distributed under the License is distributed
+  ~ in an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for
+  ~ specific language governing permissions and limitations under the license.
+  -->
+
+<Configuration status="warn">
+    <Properties>
+        <Property name="PID">????</Property>
+        <Property name="LOG_LEVEL_PATTERN">%5p</Property>
+        <Property name="CONSOLE_LOG_PATTERN">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{${LOG_LEVEL_PATTERN}} %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n</Property>
+        <Property name="HOSTNAME">${env:HOSTNAME:-unknown}</Property>
+        <Property name="GRAYLOG_HOST">${env:GRAYLOG_HOST:-localhost}</Property>
+        <Property name="GRAYLOG_PORT">${env:GRAYLOG_PORT:-12201}</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" immediateFlush="false">
+            <PatternLayout pattern="${sys:CONSOLE_LOG_PATTERN}" />
+        </Console>
+        <Socket name="gelfAppender" protocol="udp" host="${GRAYLOG_HOST}" port="${GRAYLOG_PORT}" immediateFlush="false">
+            <GelfLayout host="${HOSTNAME}" compressionType="ZLIB" compressionThreshold="1024">
+                <KeyValuePair key="application" value="ivs"/>
+            </GelfLayout>
+        </Socket>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.apache.catalina.startup.DigesterFactory" level="error" />
+        <Logger name="org.apache.catalina.util.LifecycleBase" level="error" />
+        <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="warn" />
+        <logger name="org.apache.sshd.common.util.SecurityUtils" level="warn"/>
+        <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="warn" />
+        <Logger name="org.crsh.plugin" level="warn" />
+        <logger name="org.crsh.ssh" level="warn"/>
+        <Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="error" />
+        <Logger name="org.hibernate.validator.internal.util.Version" level="warn" />
+        <Logger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="warn"/>
+        <Logger name="org.springframework.boot.actuate.endpoint.jmx" level="warn"/>
+        <Logger name="org.thymeleaf" level="warn"/>
+
+        <Logger name="org.opentestsystem" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="gelfAppender"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="gelfAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
