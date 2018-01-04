@@ -45,8 +45,8 @@ logging:
     org:
       opentestsystem:
         ap:
-          ivs: DEBUG
-          common: DEBUG
+          ivs: "debug"
+          common: "debug"
 
 ivs:
   itemBankReportRepoName: "itembankreports"
