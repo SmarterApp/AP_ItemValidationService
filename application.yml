@@ -35,6 +35,8 @@ itembank:
   localBaseDir: "${HOME}/ItemBankValidation"
   apiVersion: "/api/v4"
   bankKey: "187"
+  systemVersion: "iat-6"
+
 
 tasks:
   itemCleanupThresholdMillis : "30000"
