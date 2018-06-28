@@ -210,11 +210,16 @@ task dockerCopyFiles(type: Copy) {
     dependsOn 'bootRepackage'
 
     from('src/main/docker/') {
+        exclude '*.gz'
         filter(ReplaceTokens, tokens: [USER_HOME:           System.env.HOME,
                                        configServerVersion: project.configServerVersion,
                                        version:             project.version,
                                        dockerTagBase:       project.dockerTagBase,
                                        contentPackageTabulatorVersion: project.contentPackageTabulatorVersion])
+    }
+
+    from('src/main/docker/') {
+        include '*.gz'
     }
 
     from("build/libs/${jar.archiveName}") {
