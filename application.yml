@@ -51,12 +51,11 @@ logging:
           common: "debug"
 
 ivs:
-  itemBankReportRepoName: "itembankreports"
   # This path is to the executable version of the CPT appropriate to the machine it's running on.
   # Currently supported environments are Windows (win10-x64), OSX (osx.10.12-x64), and Debian Linux (debian.8-x64).
   # Failure to provide an appropriate executable will cause validation to fail. CPT releases
   # may be found on GitHub here: https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases
-  cptExecutablePath: "/cpt/ContentPackageTabulator"
+  cptExecutablePath: "${TABULATOR_HOME:/Users/bdrainer/tabulator/TabulateSmarterTestContentPackage -v-trd}"
 
 ---
 spring:

@@ -1,0 +1,23 @@
+﻿Folder,BankKey,ItemId,ItemType,Category,Severity,ErrorMessage,Detail
+,,,,System,Message,Tabulator Start,"version='3.2.0.2' options='trd(Off)'"
+validation/Items/item-187-200044,187,200044,mc,Attribute,Tolerable,Missing subject in item attributes (itm_item_subject).,
+validation/Items/item-187-200044,187,200044,mc,Metadata,Tolerable,Missing subject in item metadata.,
+validation/Items/item-187-200044,187,200044,mc,Metadata,Degraded,MaximumNumberOfPoints field not present in metadata,
+validation/Items/item-187-200044,187,200044,mc,Attribute,Tolerable,Missing grade in item attributes (itm_att_Grade).,
+validation/Items/item-187-200044,187,200044,mc,Metadata,Tolerable,Missing <IntendedGrade> in item metadata.,
+validation/Items/item-187-200044,187,200044,mc,AnswerKey,Severe,Unexpected MC answer key attribute.,"itm_att_Answer Key=''"
+validation/Items/item-187-200044,187,200044,mc,Metadata,Tolerable,Automatic/HandScored scoring metadata error.,"Found='' Expected='Automatic with Key'"
+validation/Items/item-187-200044,187,200044,mc,Item,Severe,Item does not have any answer options.,"itemtype='mc'"
+validation/Items/item-187-200044,187,200044,mc,Metadata,Tolerable,No PrimaryStandard found in metadata.,
+validation/Items/item-187-200044,187,200044,mc,Metadata,Tolerable,Found more than one PrimaryStandard.,"count='0'"
+validation/Items/item-187-200044,187,200044,mc,Metadata,Degraded,"Unexpected claim value (should be 1, 2, 3, or 4 with possible suffix).","Claim=''"
+validation/Items/item-187-200044,187,200044,mc,Metadata,Tolerable,CCSS standard is missing from item.,"claim='' standard=''"
+validation/Items/item-187-200044,187,200044,mc,Item,Severe,Attachment missing type attribute.,
+validation/Items/item-187-200044,187,200044,mc,Item,Severe,Attachment missing type attribute.,
+validation/Items/item-187-200044,187,200044,mc,Item,Degraded,Tutorial id missing from item.,
+validation/Items/item-187-200044,187,200044,mc,Metadata,Benign,Item content includes language but metadata does not have a corresponding <Language> entry.,"Language='spa'"
+validation/Items/item-187-200044,187,200044,mc,Item,Tolerable,Item Point attribute (item_att_Item Point) not found.,
+validation/Stimuli/stim-187-200045,187,200045,stim,Metadata,Tolerable,Missing subject in item metadata.,
+validation/Stimuli/stim-187-200045,187,200045,stim,Item,Severe,Attachment missing type attribute.,
+validation/Stimuli/stim-187-200045,187,200045,stim,Item,Severe,Attachment missing type attribute.,
+validation/Stimuli/stim-187-200045,187,200045,stim,Metadata,Benign,Item content includes language but metadata does not have a corresponding <Language> entry.,"Language='spa'"
