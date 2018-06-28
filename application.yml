@@ -39,8 +39,8 @@ itembank:
 
 
 tasks:
-  itemCleanupThresholdMillis : "30000"
-  itemCleanupRunEveryMillis: "30000"
+  itemCleanupThresholdMillis : "1800000"
+  itemCleanupRunEveryMillis: "1800000"
 
 logging:
   level:
