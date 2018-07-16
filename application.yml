@@ -55,7 +55,7 @@ ivs:
   # Currently supported environments are Windows (win10-x64), OSX (osx.10.12-x64), and Debian Linux (debian.8-x64).
   # Failure to provide an appropriate executable will cause validation to fail. CPT releases
   # may be found on GitHub here: https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases
-  cptExecutablePath: "${TABULATOR_HOME:/Users/bdrainer/tabulator/TabulateSmarterTestContentPackage -v-trd}"
+  cptExecutablePath: "${TABULATOR_HOME:dotnet ${HOME}/tabulator/TabulateSmarterTestContentPackage.dll -v-trd}"
 
 ---
 spring:
