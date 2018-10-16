@@ -13,10 +13,10 @@ VOLUME ["/tmp"]
 
 COPY ap-ivs.jar /
 
-COPY cpt3.2.0.2.tar.gz /
+COPY cpt3.4.1.tar.gz /
 
-RUN tar xf cpt3.2.0.2.tar.gz
-RUN rm cpt3.2.0.2.tar.gz
+RUN tar xf cpt3.4.1.tar.gz
+RUN rm cpt3.4.1.tar.gz
 RUN mv ./publish ./cpt
 
 RUN apt-get update
