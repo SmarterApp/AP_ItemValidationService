@@ -40,7 +40,7 @@ itembank:
   group: "${GITLAB_GROUP}"
   localBaseDir: "${HOME}/ItemBankValidation"
   apiVersion: "/api/v4"
-  bankKey: "187"
+  bankKey: "200"
   systemVersion: "iat-6"
 
 
