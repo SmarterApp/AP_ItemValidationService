@@ -25,12 +25,19 @@ security:
 spring:
   session:
     enabled: "${SESSION_CLUSTER_ENABLED:true}"
-  autoconfigure:
-    exclude:
-    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-    - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
-    - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
-    - org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/iat"
+    username: "${DB_USER}"
+    password: "${DB_PASSWORD}"
+    validationQuery: "SELECT 1"
+  jpa:
+    hibernate:
+      ddl-auto: "validate"
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
 
 itembank:
   host: "https://gitlab-dev.smarterbalanced.org"
@@ -41,7 +48,15 @@ itembank:
   localBaseDir: "${HOME}/ItemBankValidation"
   apiVersion: "/api/v4"
   bankKey: "200"
-  systemVersion: "iat-6"
+  systemVersion: "iat-11"
+  enabled:
+    database: true
+  aws:
+    endpointUrl: "https://s3.us-east-2.amazonaws.com"
+    region: "us-east-2"
+    bucketName: "${itembank.group}"
+    accessKey: "${IAT_AWS_ACCESS_KEY}"
+    secretKey: "${IAT_AWS_ACCESS_SECRET}"
 
 
 tasks:
@@ -66,20 +81,10 @@ ivs:
 ---
 spring:
   profiles: dev
-
-itembank:
-  group: "iat-development"
-
----
-spring:
-  profiles: uat
-
-itembank:
-  group: "iat-uat"
-
----
-spring:
-  profiles: dev
+  datasource:
+    url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
+    tomcat:
+      max-active: 2
 
 itembank:
   group: "iat-development"
