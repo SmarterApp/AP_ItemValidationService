@@ -20,6 +20,9 @@ spring:
 itembank:
   test:
     enabled: "true"
+  enabled:
+    preview: false
+    database: false
 
 ---
 spring:
