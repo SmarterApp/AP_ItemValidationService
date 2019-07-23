@@ -83,6 +83,8 @@ spring:
   profiles: dev
   datasource:
     url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
+    tomcat:
+      max-active: 2
 
 itembank:
   aws:
@@ -94,6 +96,8 @@ spring:
   profiles: uat
   datasource:
     url: "jdbc:postgresql://imrt-db-uat-aurora.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
+    tomcat:
+      max-active: 2
 
 itembank:
   aws:
@@ -105,6 +109,8 @@ spring:
   profiles: prod-mirror
   datasource:
     url: "jdbc:postgresql://tims-prod-mirror.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
+    tomcat:
+      max-active: 2
 
 itembank:
   aws:
