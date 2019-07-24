@@ -40,7 +40,6 @@ spring:
         format_sql: true
 
 itembank:
-  systemVersion: "iat-41"
   localBaseDir: "${HOME}/ItemBankValidation"
   systemUser:
     userName: "iat-item-validation-service@smarterbalanced.org"
