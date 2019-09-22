@@ -22,6 +22,6 @@ RUN mv ./publish ./cpt
 RUN apt-get update
 RUN apt-get -y install curl libunwind8 gettext apt-transport-https
 
-ENTRYPOINT ["/usr/bin/java"]
+ENV MAX_HEAP_SIZE -Xmx384m
 
-CMD ["-jar", "/ap-ivs.jar"]
+CMD java $MAX_HEAP_SIZE $JAVA_OPTS -jar ap-ivs.jar

@@ -15,52 +15,6 @@
 server:
   port: 8087
 
-security:
-  basic:
-    enabled: "${SECURITY_ENABLED:true}"
-  user:
-    name: "admin"
-    password: "admin"
-
-spring:
-  session:
-    enabled: "${SESSION_CLUSTER_ENABLED:true}"
-  datasource:
-    url: "jdbc:postgresql://localhost:5432/iat"
-    username: "${DB_USER}"
-    password: "${DB_PASSWORD}"
-    validationQuery: "SELECT 1"
-  jpa:
-    hibernate:
-      ddl-auto: "validate"
-    properties:
-      hibernate:
-        show_sql: true
-        use_sql_comments: true
-        format_sql: true
-
-itembank:
-  localBaseDir: "${HOME}/ItemBankValidation"
-  systemUser:
-    userName: "iat-item-validation-service@smarterbalanced.org"
-    fullName: "Item Validation Service"
-  enabled:
-    database: true
-  services:
-    history:
-      url: "http://localhost:8086"
-  aws:
-    endpointUrl: "https://s3.us-east-2.amazonaws.com"
-    region: "us-east-2"
-    bucketName: "${GITLAB_GROUP}"
-    versionedBucketName: "${GITLAB_GROUP}-versioned"
-    accessKey: "${IAT_AWS_ACCESS_KEY}"
-    secretKey: "${IAT_AWS_ACCESS_SECRET}"
-
-tasks:
-  itemCleanupThresholdMillis : "1800000"
-  itemCleanupRunEveryMillis: "1800000"
-
 logging:
   level:
     org:
@@ -68,14 +22,6 @@ logging:
         ap:
           ivs: "debug"
           common: "debug"
-
-ivs:
-  # This path is to the executable version of the CPT appropriate to the machine it's running on.
-  # Currently supported environments are Windows (win10-x64), OSX (osx.10.12-x64), and Debian Linux (debian.8-x64).
-  # Failure to provide an appropriate executable will cause validation to fail. CPT releases
-  # may be found on GitHub here: https://github.com/SmarterApp/TabulateSmarterTestContentPackage/releases
-  cptExecutablePath: "${TABULATOR_HOME:dotnet ${HOME}/tabulator/TabulateSmarterTestContentPackage.dll -v-trd}"
-  disableImmediateCleanup: true
 
 ---
 spring:
